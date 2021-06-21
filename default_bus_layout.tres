@@ -1,0 +1,64 @@
+[gd_resource type="AudioBusLayout" load_steps=5 format=2]
+
+[sub_resource type="AudioEffectReverb" id=1]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectEQ" id=2]
+resource_name = "EQ"
+band_db/32_hz = -60.0
+band_db/100_hz = -20.1
+
+[sub_resource type="AudioEffectLimiter" id=3]
+resource_name = "Limiter"
+ceiling_db = -0.4
+threshold_db = -11.4
+soft_clip_db = 0.0
+soft_clip_ratio = 20.0
+
+[sub_resource type="AudioEffectReverb" id=4]
+resource_name = "Reverb"
+room_size = 0.26
+damping = 1.0
+spread = 0.44
+wet = 0.3
+
+[resource]
+bus/0/volume_db = -0.328256
+bus/1/name = "alarm"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -0.923751
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 1 )
+bus/1/effect/0/enabled = true
+bus/2/name = "aliens"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -18.3165
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 2 )
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource( 3 )
+bus/2/effect/1/enabled = true
+bus/3/name = "gunshots"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -8.00903
+bus/3/send = "Master"
+bus/3/effect/0/effect = SubResource( 4 )
+bus/3/effect/0/enabled = true
+bus/4/name = "beeps"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -21.8264
+bus/4/send = "Master"
+bus/5/name = "bangs"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -1.51925
+bus/5/send = "Master"

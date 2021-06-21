@@ -1,0 +1,159 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Fire Screen/Sprites/fire_text.png" type="Texture" id=1]
+[ext_resource path="res://Fire Screen/Sprites/critical_f2.png" type="Texture" id=2]
+[ext_resource path="res://Fire Screen/Sprites/ammo_boxes.png" type="Texture" id=3]
+[ext_resource path="res://Fire Screen/Sprites/critical_f1.png" type="Texture" id=4]
+[ext_resource path="res://Turret Select/Sprites/turret_a.png" type="Texture" id=5]
+[ext_resource path="res://Fire Screen/Sprites/guage_bar.png" type="Texture" id=6]
+[ext_resource path="res://Fire Screen/Sprites/guage_ticks.png" type="Texture" id=7]
+[ext_resource path="res://Fire Screen/Sprites/seconds_dot.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/rounds_left_count.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Fire Screen/Scripts/rounds_counter.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Turret Console.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Fire Screen/Scripts/time_counter.gd" type="Script" id=13]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "flash_crit",
+"speed": 2.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+
+[node name="fire_screen" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Turret Console" parent="." instance=ExtResource( 12 )]
+
+[node name="ammo_boxes" type="Sprite" parent="."]
+material = SubResource( 1 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="fire_text" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="crit_warning" type="AnimatedSprite" parent="."]
+visible = false
+material = SubResource( 3 )
+frames = SubResource( 4 )
+animation = "flash_crit"
+centered = false
+
+[node name="temp_gauge_bar" type="TextureProgress" parent="."]
+material = SubResource( 5 )
+margin_left = 240.03
+margin_top = 55.0506
+margin_right = 248.03
+margin_bottom = 139.051
+texture_progress = ExtResource( 6 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="r_guage" type="TextureProgress" parent="."]
+material = SubResource( 6 )
+margin_left = 277.078
+margin_top = 55.0506
+margin_right = 285.078
+margin_bottom = 139.051
+texture_progress = ExtResource( 6 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="guage_ticks" type="Sprite" parent="."]
+material = SubResource( 7 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="seconds_dot" type="Sprite" parent="."]
+material = SubResource( 8 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="rounds_counter" type="Control" parent="."]
+material = SubResource( 9 )
+margin_left = -6.0
+margin_top = -2.0
+margin_right = -6.0
+margin_bottom = -2.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rounds_left_count1" parent="rounds_counter" instance=ExtResource( 9 )]
+position = Vector2( 139.186, 63.4408 )
+frame = 0
+
+[node name="rounds_left_count2" parent="rounds_counter" instance=ExtResource( 9 )]
+position = Vector2( 150.413, 63.4408 )
+frame = 0
+
+[node name="rounds_left_count3" parent="rounds_counter" instance=ExtResource( 9 )]
+position = Vector2( 161.702, 63.4408 )
+frame = 0
+
+[node name="time_counter" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time_count1" parent="time_counter" instance=ExtResource( 9 )]
+position = Vector2( 123.511, 114.098 )
+frame = 0
+
+[node name="time_count2" parent="time_counter" instance=ExtResource( 9 )]
+position = Vector2( 134.673, 114.098 )
+frame = 0
+
+[node name="time_count3" parent="time_counter" instance=ExtResource( 9 )]
+position = Vector2( 157.386, 114.098 )
+frame = 0
+
+[node name="time_count4" parent="time_counter" instance=ExtResource( 9 )]
+position = Vector2( 168.481, 114.098 )
+frame = 0
+
+[node name="turret_a" type="Sprite" parent="."]
+material = SubResource( 10 )
+texture = ExtResource( 5 )
+centered = false

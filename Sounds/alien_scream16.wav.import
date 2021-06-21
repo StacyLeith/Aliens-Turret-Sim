@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/alien_scream16.wav-b9a3826cd2e3e6b0221d54733001e57c.sample"
+
+[deps]
+
+source_file="res://Sounds/alien_scream16.wav"
+dest_files=[ "res://.import/alien_scream16.wav-b9a3826cd2e3e6b0221d54733001e57c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

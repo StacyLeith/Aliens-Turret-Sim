@@ -1,0 +1,728 @@
+[gd_scene load_steps=147 format=2]
+
+[ext_resource path="res://Status Screen/Sprites/System Mode/semi-auto.png" type="Texture" id=1]
+[ext_resource path="res://Status Screen/Sprites/System Mode/auto-remote.png" type="Texture" id=2]
+[ext_resource path="res://Status Screen/Sprites/System Mode/sel_auto-remote.png" type="Texture" id=3]
+[ext_resource path="res://Status Screen/Sprites/System Mode/sel_system_mode.png" type="Texture" id=4]
+[ext_resource path="res://Status Screen/Sprites/Weapon Status/status_grid.png" type="Texture" id=5]
+[ext_resource path="res://Status Screen/Sprites/System Mode/sel_man-override.png" type="Texture" id=6]
+[ext_resource path="res://Status Screen/Sprites/System Mode/man-override.png" type="Texture" id=7]
+[ext_resource path="res://Status Screen/Sprites/System Mode/system_mode.png" type="Texture" id=8]
+[ext_resource path="res://Status Screen/Sprites/System Mode/sel_semi-auto.png" type="Texture" id=9]
+[ext_resource path="res://Status Screen/State Scripts/man_override_button.gd" type="Script" id=10]
+[ext_resource path="res://Status Screen/State Scripts/man_override.gd" type="Script" id=11]
+[ext_resource path="res://Status Screen/State Scripts/auto_remote_button.gd" type="Script" id=12]
+[ext_resource path="res://Status Screen/State Scripts/semi_auto_button.gd" type="Script" id=13]
+[ext_resource path="res://Status Screen/State Scripts/system_mode_statemachine.gd" type="Script" id=14]
+[ext_resource path="res://Status Screen/State Scripts/auto_remote.gd" type="Script" id=15]
+[ext_resource path="res://Status Screen/State Scripts/semi_auto.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/Turret Console.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Status Screen/Sprites/Weapon Status/sel_weapon_status.png" type="Texture" id=18]
+[ext_resource path="res://Status Screen/Sprites/Weapon Status/weapon_status.png" type="Texture" id=19]
+[ext_resource path="res://Status Screen/Sprites/Weapon Status/safe.png" type="Texture" id=20]
+[ext_resource path="res://Status Screen/Sprites/Weapon Status/sel_safe.png" type="Texture" id=21]
+[ext_resource path="res://Status Screen/Sprites/Weapon Status/armed.png" type="Texture" id=22]
+[ext_resource path="res://Status Screen/Sprites/Weapon Status/sel_armed.png" type="Texture" id=23]
+[ext_resource path="res://Status Screen/State Scripts/weapon_status_statemachine.gd" type="Script" id=24]
+[ext_resource path="res://Status Screen/State Scripts/armed.gd" type="Script" id=25]
+[ext_resource path="res://Status Screen/State Scripts/safe.gd" type="Script" id=26]
+[ext_resource path="res://Status Screen/State Scripts/safe_button.gd" type="Script" id=27]
+[ext_resource path="res://Status Screen/State Scripts/armed_button.gd" type="Script" id=28]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/iff_status.png" type="Texture" id=29]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/sel_iff_status.png" type="Texture" id=30]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/sel_interrogate.png" type="Texture" id=31]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/test.png" type="Texture" id=32]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/search.png" type="Texture" id=33]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/engaged.png" type="Texture" id=34]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/sel_test.png" type="Texture" id=35]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/sel_engaged.png" type="Texture" id=36]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/sel_search.png" type="Texture" id=37]
+[ext_resource path="res://Status Screen/Sprites/IFF Status/interrogate.png" type="Texture" id=38]
+[ext_resource path="res://Status Screen/Sprites/Test Routine/sel_test_routine.png" type="Texture" id=39]
+[ext_resource path="res://Status Screen/Sprites/Test Routine/test_routine.png" type="Texture" id=40]
+[ext_resource path="res://Status Screen/Sprites/Test Routine/sel_selective.png" type="Texture" id=41]
+[ext_resource path="res://Status Screen/Sprites/Test Routine/auto.png" type="Texture" id=42]
+[ext_resource path="res://Status Screen/Sprites/Test Routine/sel_auto.png" type="Texture" id=43]
+[ext_resource path="res://Status Screen/Sprites/Test Routine/selective.png" type="Texture" id=44]
+[ext_resource path="res://Status Screen/State Scripts/test_routine_statemachine.gd" type="Script" id=45]
+[ext_resource path="res://Status Screen/State Scripts/auto.gd" type="Script" id=46]
+[ext_resource path="res://Status Screen/State Scripts/selective.gd" type="Script" id=47]
+[ext_resource path="res://Status Screen/State Scripts/auto_button.gd" type="Script" id=48]
+[ext_resource path="res://Status Screen/State Scripts/selective_button.gd" type="Script" id=49]
+[ext_resource path="res://Status Screen/Sprites/Target Profile/sel_target_profile.png" type="Texture" id=50]
+[ext_resource path="res://Status Screen/Sprites/Target Profile/target_profile.png" type="Texture" id=51]
+[ext_resource path="res://Status Screen/State Scripts/target_profile_statemachine.gd" type="Script" id=52]
+[ext_resource path="res://Status Screen/Sprites/Target Profile/sel_semihard.png" type="Texture" id=53]
+[ext_resource path="res://Status Screen/Sprites/Target Profile/soft.png" type="Texture" id=54]
+[ext_resource path="res://Status Screen/Sprites/Target Profile/semihard.png" type="Texture" id=55]
+[ext_resource path="res://Status Screen/Sprites/Target Profile/sel_soft.png" type="Texture" id=56]
+[ext_resource path="res://Status Screen/Sprites/Target Profile/sel_hard.png" type="Texture" id=57]
+[ext_resource path="res://Status Screen/Sprites/Target Profile/hard.png" type="Texture" id=58]
+[ext_resource path="res://Status Screen/State Scripts/soft.gd" type="Script" id=59]
+[ext_resource path="res://Status Screen/State Scripts/semihard.gd" type="Script" id=60]
+[ext_resource path="res://Status Screen/State Scripts/hard.gd" type="Script" id=61]
+[ext_resource path="res://Status Screen/State Scripts/soft_button.gd" type="Script" id=62]
+[ext_resource path="res://Status Screen/State Scripts/hard_button.gd" type="Script" id=63]
+[ext_resource path="res://Status Screen/State Scripts/semihard_button.gd" type="Script" id=64]
+[ext_resource path="res://Status Screen/Sprites/Spectral Profile/spectral_profile.png" type="Texture" id=65]
+[ext_resource path="res://Status Screen/Sprites/Spectral Profile/sel_spectral_profile.png" type="Texture" id=66]
+[ext_resource path="res://Status Screen/State Scripts/spectral_profile_statemachine.gd" type="Script" id=67]
+[ext_resource path="res://Status Screen/Sprites/Spectral Profile/sel_bio.png" type="Texture" id=68]
+[ext_resource path="res://Status Screen/Sprites/Spectral Profile/bio.png" type="Texture" id=69]
+[ext_resource path="res://Status Screen/Sprites/Spectral Profile/inert.png" type="Texture" id=70]
+[ext_resource path="res://Status Screen/Sprites/Spectral Profile/sel_inert.png" type="Texture" id=71]
+[ext_resource path="res://Status Screen/State Scripts/bio.gd" type="Script" id=72]
+[ext_resource path="res://Status Screen/State Scripts/inert.gd" type="Script" id=73]
+[ext_resource path="res://Status Screen/State Scripts/bio_button.gd" type="Script" id=74]
+[ext_resource path="res://Status Screen/State Scripts/inert_button.gd" type="Script" id=75]
+[ext_resource path="res://Status Screen/Sprites/Target Select/sel_uv.png" type="Texture" id=76]
+[ext_resource path="res://Status Screen/Sprites/Target Select/sel_target_select.png" type="Texture" id=77]
+[ext_resource path="res://Status Screen/Sprites/Target Select/multi_spec.png" type="Texture" id=78]
+[ext_resource path="res://Status Screen/Sprites/Target Select/target_select.png" type="Texture" id=79]
+[ext_resource path="res://Status Screen/State Scripts/target_select_statemachine.gd" type="Script" id=80]
+[ext_resource path="res://Status Screen/Sprites/Target Select/sel_infra_red.png" type="Texture" id=81]
+[ext_resource path="res://Status Screen/Sprites/Target Select/uv.png" type="Texture" id=82]
+[ext_resource path="res://Status Screen/Sprites/Target Select/sel_multi_spec.png" type="Texture" id=83]
+[ext_resource path="res://Status Screen/Sprites/Target Select/infra_red.png" type="Texture" id=84]
+[ext_resource path="res://Status Screen/State Scripts/uv_button.gd" type="Script" id=85]
+[ext_resource path="res://Status Screen/State Scripts/uv.gd" type="Script" id=86]
+[ext_resource path="res://Status Screen/State Scripts/multi_spec.gd" type="Script" id=87]
+[ext_resource path="res://Status Screen/State Scripts/infra_red.gd" type="Script" id=88]
+[ext_resource path="res://Status Screen/State Scripts/infra_red_button.gd" type="Script" id=89]
+[ext_resource path="res://Status Screen/State Scripts/multi_spec_button.gd" type="Script" id=90]
+[ext_resource path="res://Turret Select/Sprites/turret_a.png" type="Texture" id=91]
+[ext_resource path="res://Status Screen/State Scripts/status_screen.gd" type="Script" id=92]
+[ext_resource path="res://Status Screen/State Scripts/BTN_SYSTEM_MODE.gd" type="Script" id=93]
+[ext_resource path="res://Status Screen/State Scripts/BTN_WEAPON_STATUS.gd" type="Script" id=94]
+[ext_resource path="res://Status Screen/State Scripts/BTN_SPECTRAL_PROFILE.gd" type="Script" id=95]
+[ext_resource path="res://Status Screen/State Scripts/BTN_TARGET_PROFILE.gd" type="Script" id=96]
+[ext_resource path="res://Status Screen/State Scripts/BTN_TARGET_SELECT.gd" type="Script" id=97]
+[ext_resource path="res://Status Screen/State Scripts/BTN_TEST_ROUTINE.gd" type="Script" id=98]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "selecting",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "selecting",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "selecting",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=11]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=13]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=15]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=16]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 42 ), ExtResource( 43 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=18]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ ExtResource( 44 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=20]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=21]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ ExtResource( 54 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=23]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ ExtResource( 55 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=25]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=26]
+animations = [ {
+"frames": [ ExtResource( 58 ), ExtResource( 57 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=27]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=28]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ ExtResource( 69 ), ExtResource( 68 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=30]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ ExtResource( 70 ), ExtResource( 71 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=32]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=33]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=34]
+animations = [ {
+"frames": [ ExtResource( 78 ), ExtResource( 83 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=35]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=36]
+animations = [ {
+"frames": [ ExtResource( 84 ), ExtResource( 81 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=37]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=38]
+animations = [ {
+"frames": [ ExtResource( 82 ), ExtResource( 76 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=39]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=40]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=41]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=42]
+animations = [ {
+"frames": [ ExtResource( 33 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=43]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=44]
+animations = [ {
+"frames": [ ExtResource( 32 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=45]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=46]
+animations = [ {
+"frames": [ ExtResource( 34 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=47]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=48]
+animations = [ {
+"frames": [ ExtResource( 38 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="status_screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 92 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Turret Console" parent="." instance=ExtResource( 17 )]
+
+[node name="status_grid" type="Sprite" parent="."]
+material = SubResource( 1 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Turret Select" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="turret_a_indicator" type="Sprite" parent="Turret Select"]
+material = SubResource( 2 )
+texture = ExtResource( 91 )
+centered = false
+
+[node name="config_settings" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="system_mode" type="Control" parent="config_settings"]
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BTN_SYSTEM_MODE" type="TextureButton" parent="config_settings/system_mode"]
+material = SubResource( 3 )
+margin_left = 20.013
+margin_top = 41.0
+margin_right = 85.013
+margin_bottom = 61.0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+stretch_mode = 5
+script = ExtResource( 93 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sysmode_states" type="Node2D" parent="config_settings/system_mode"]
+
+[node name="auto_remote" type="Node2D" parent="config_settings/system_mode/sysmode_states"]
+script = ExtResource( 15 )
+
+[node name="auto_remote_button" type="AnimatedSprite" parent="config_settings/system_mode/sysmode_states/auto_remote"]
+material = SubResource( 4 )
+position = Vector2( 20.013, 62.9996 )
+frames = SubResource( 5 )
+animation = "selecting"
+centered = false
+script = ExtResource( 12 )
+
+[node name="man_override" type="Node2D" parent="config_settings/system_mode/sysmode_states"]
+script = ExtResource( 11 )
+
+[node name="man_override_button" type="AnimatedSprite" parent="config_settings/system_mode/sysmode_states/man_override"]
+material = SubResource( 6 )
+position = Vector2( 20.0236, 70.9996 )
+frames = SubResource( 7 )
+animation = "selecting"
+centered = false
+script = ExtResource( 10 )
+
+[node name="semi_auto" type="Node2D" parent="config_settings/system_mode/sysmode_states"]
+script = ExtResource( 16 )
+
+[node name="semi_auto_button" type="AnimatedSprite" parent="config_settings/system_mode/sysmode_states/semi_auto"]
+material = SubResource( 8 )
+position = Vector2( 20.0236, 78.9996 )
+frames = SubResource( 9 )
+animation = "selecting"
+centered = false
+script = ExtResource( 13 )
+
+[node name="weapon_status" type="Control" parent="config_settings"]
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BTN_WEAPON_STATUS" type="TextureButton" parent="config_settings/weapon_status"]
+material = SubResource( 10 )
+margin_left = 87.9913
+margin_top = 41.0
+margin_right = 128.991
+margin_bottom = 61.0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+stretch_mode = 5
+script = ExtResource( 94 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="weapstat_states" type="Node2D" parent="config_settings/weapon_status"]
+
+[node name="safe" type="Node2D" parent="config_settings/weapon_status/weapstat_states"]
+script = ExtResource( 26 )
+
+[node name="safe_button" type="AnimatedSprite" parent="config_settings/weapon_status/weapstat_states/safe"]
+material = SubResource( 11 )
+position = Vector2( 87.9913, 62.9996 )
+frames = SubResource( 12 )
+centered = false
+script = ExtResource( 27 )
+
+[node name="armed" type="Node2D" parent="config_settings/weapon_status/weapstat_states"]
+script = ExtResource( 25 )
+
+[node name="armed_button" type="AnimatedSprite" parent="config_settings/weapon_status/weapstat_states/armed"]
+material = SubResource( 13 )
+position = Vector2( 87.9913, 70.9996 )
+frames = SubResource( 14 )
+centered = false
+script = ExtResource( 28 )
+
+[node name="test_routine" type="Control" parent="config_settings"]
+script = ExtResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BTN_TEST_ROUTINE" type="TextureButton" parent="config_settings/test_routine"]
+material = SubResource( 15 )
+margin_left = 203.991
+margin_top = 41.0
+margin_right = 299.991
+margin_bottom = 61.0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 40 )
+texture_pressed = ExtResource( 39 )
+texture_hover = ExtResource( 39 )
+stretch_mode = 5
+script = ExtResource( 98 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="testrout_states" type="Node2D" parent="config_settings/test_routine"]
+
+[node name="auto" type="Node2D" parent="config_settings/test_routine/testrout_states"]
+script = ExtResource( 46 )
+
+[node name="auto_button" type="AnimatedSprite" parent="config_settings/test_routine/testrout_states/auto"]
+material = SubResource( 16 )
+position = Vector2( 203.991, 62.9996 )
+frames = SubResource( 17 )
+centered = false
+script = ExtResource( 48 )
+
+[node name="selective" type="Node2D" parent="config_settings/test_routine/testrout_states"]
+script = ExtResource( 47 )
+
+[node name="selective_button" type="AnimatedSprite" parent="config_settings/test_routine/testrout_states/selective"]
+material = SubResource( 18 )
+position = Vector2( 203.991, 70.9996 )
+frames = SubResource( 19 )
+centered = false
+script = ExtResource( 49 )
+
+[node name="target_profile" type="Control" parent="config_settings"]
+script = ExtResource( 52 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BTN_TARGET_PROFILE" type="TextureButton" parent="config_settings/target_profile"]
+material = SubResource( 20 )
+margin_left = 20.013
+margin_top = 105.984
+margin_right = 110.013
+margin_bottom = 116.984
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 51 )
+texture_pressed = ExtResource( 50 )
+texture_hover = ExtResource( 50 )
+stretch_mode = 5
+script = ExtResource( 96 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tarpro_states" type="Node2D" parent="config_settings/target_profile"]
+
+[node name="soft" type="Node2D" parent="config_settings/target_profile/tarpro_states"]
+script = ExtResource( 59 )
+
+[node name="soft_button" type="AnimatedSprite" parent="config_settings/target_profile/tarpro_states/soft"]
+material = SubResource( 21 )
+position = Vector2( 20.013, 119.001 )
+frames = SubResource( 22 )
+centered = false
+script = ExtResource( 62 )
+
+[node name="semihard" type="Node2D" parent="config_settings/target_profile/tarpro_states"]
+script = ExtResource( 60 )
+
+[node name="semihard_button" type="AnimatedSprite" parent="config_settings/target_profile/tarpro_states/semihard"]
+material = SubResource( 23 )
+position = Vector2( 20.013, 127.001 )
+frames = SubResource( 24 )
+centered = false
+script = ExtResource( 64 )
+
+[node name="hard" type="Node2D" parent="config_settings/target_profile/tarpro_states"]
+script = ExtResource( 61 )
+
+[node name="hard_button" type="AnimatedSprite" parent="config_settings/target_profile/tarpro_states/hard"]
+material = SubResource( 25 )
+position = Vector2( 20.0236, 135.001 )
+frames = SubResource( 26 )
+centered = false
+script = ExtResource( 63 )
+
+[node name="spectral_profile" type="Control" parent="config_settings"]
+script = ExtResource( 67 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BTN_SPECTRAL_PROFILE" type="TextureButton" parent="config_settings/spectral_profile"]
+material = SubResource( 27 )
+margin_left = 113.019
+margin_top = 105.984
+margin_right = 211.019
+margin_bottom = 116.984
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 65 )
+texture_pressed = ExtResource( 66 )
+texture_hover = ExtResource( 66 )
+stretch_mode = 5
+script = ExtResource( 95 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="specpro_states" type="Node2D" parent="config_settings/spectral_profile"]
+
+[node name="bio" type="Node2D" parent="config_settings/spectral_profile/specpro_states"]
+script = ExtResource( 72 )
+
+[node name="bio_button" type="AnimatedSprite" parent="config_settings/spectral_profile/specpro_states/bio"]
+material = SubResource( 28 )
+position = Vector2( 113.019, 119.001 )
+frames = SubResource( 29 )
+centered = false
+script = ExtResource( 74 )
+
+[node name="inert" type="Node2D" parent="config_settings/spectral_profile/specpro_states"]
+script = ExtResource( 73 )
+
+[node name="inert_button" type="AnimatedSprite" parent="config_settings/spectral_profile/specpro_states/inert"]
+material = SubResource( 30 )
+position = Vector2( 113.019, 127.001 )
+frames = SubResource( 31 )
+centered = false
+script = ExtResource( 75 )
+
+[node name="target_select" type="Control" parent="config_settings"]
+script = ExtResource( 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BTN_TARGET_SELECT" type="TextureButton" parent="config_settings/target_select"]
+material = SubResource( 32 )
+margin_left = 214.002
+margin_top = 105.984
+margin_right = 300.002
+margin_bottom = 116.984
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 79 )
+texture_pressed = ExtResource( 77 )
+texture_hover = ExtResource( 77 )
+stretch_mode = 5
+script = ExtResource( 97 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tarsel_states" type="Node2D" parent="config_settings/target_select"]
+
+[node name="multi_spec" type="Node2D" parent="config_settings/target_select/tarsel_states"]
+script = ExtResource( 87 )
+
+[node name="multi_spec_button" type="AnimatedSprite" parent="config_settings/target_select/tarsel_states/multi_spec"]
+material = SubResource( 33 )
+position = Vector2( 214.002, 119.001 )
+frames = SubResource( 34 )
+centered = false
+script = ExtResource( 90 )
+
+[node name="infra_red" type="Node2D" parent="config_settings/target_select/tarsel_states"]
+script = ExtResource( 88 )
+
+[node name="infra_red_button" type="AnimatedSprite" parent="config_settings/target_select/tarsel_states/infra_red"]
+material = SubResource( 35 )
+position = Vector2( 214.002, 127.001 )
+frames = SubResource( 36 )
+centered = false
+script = ExtResource( 89 )
+
+[node name="uv" type="Node2D" parent="config_settings/target_select/tarsel_states"]
+script = ExtResource( 86 )
+
+[node name="uv_button" type="AnimatedSprite" parent="config_settings/target_select/tarsel_states/uv"]
+material = SubResource( 37 )
+position = Vector2( 214.002, 135.001 )
+frames = SubResource( 38 )
+centered = false
+script = ExtResource( 85 )
+
+[node name="iff_status" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IFF_STATUS_INDICATOR" type="AnimatedSprite" parent="iff_status"]
+material = SubResource( 39 )
+position = Vector2( 131.99, 41 )
+frames = SubResource( 40 )
+frame = 1
+centered = false
+
+[node name="iffstat_states" type="Node2D" parent="iff_status"]
+
+[node name="search" type="Node2D" parent="iff_status/iffstat_states"]
+
+[node name="search_button" type="AnimatedSprite" parent="iff_status/iffstat_states/search"]
+material = SubResource( 41 )
+position = Vector2( 131.99, 62.9996 )
+frames = SubResource( 42 )
+centered = false
+
+[node name="test" type="Node2D" parent="iff_status/iffstat_states"]
+
+[node name="test_button" type="AnimatedSprite" parent="iff_status/iffstat_states/test"]
+material = SubResource( 43 )
+position = Vector2( 131.99, 70.9996 )
+frames = SubResource( 44 )
+centered = false
+
+[node name="engaged" type="Node2D" parent="iff_status/iffstat_states"]
+
+[node name="engaged_button" type="AnimatedSprite" parent="iff_status/iffstat_states/engaged"]
+material = SubResource( 45 )
+position = Vector2( 131.99, 78.9996 )
+frames = SubResource( 46 )
+frame = 1
+centered = false
+
+[node name="interrogate" type="Node2D" parent="iff_status/iffstat_states"]
+
+[node name="interrogate_button" type="AnimatedSprite" parent="iff_status/iffstat_states/interrogate"]
+material = SubResource( 47 )
+position = Vector2( 131.99, 86.9996 )
+frames = SubResource( 48 )
+centered = false

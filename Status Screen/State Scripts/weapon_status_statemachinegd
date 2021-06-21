@@ -1,0 +1,22 @@
+extends Control
+
+signal state_changed
+
+onready var sysmode_state = $weapstat_states/safe
+onready var next_sysmode_state = $weapstat_states/armed
+
+func _ready():
+	$BTN_WEAPON_STATUS.connect("pressed", self, "_change_state")
+	sysmode_state.enter()
+	
+func _process(delta):
+	sysmode_state.update()
+
+func _change_state():
+	sysmode_state.exit()
+	sysmode_state = next_sysmode_state
+	sysmode_state.enter()
+	if sysmode_state == $weapstat_states/safe:
+		next_sysmode_state = $weapstat_states/armed
+	else:
+		next_sysmode_state = $weapstat_states/safe
