@@ -8,7 +8,7 @@ signal update_ready
 # Stuff for settings
 
 
-var target_spawned_max = 1
+var target_spawned_max = 2
 var aliens_to_spawn
 var spawn_chance = 50
 

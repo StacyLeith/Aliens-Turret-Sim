@@ -32,7 +32,7 @@ onready var crit_warning = get_node("../fire_screen/crit_warning")
 onready var time_counter = get_node("../fire_screen/time_counter")
 onready var targets = get_node("../targets")
 onready var range_gauge = get_node("../fire_screen/r_guage")
-onready var got_lock = get_node("../got_lock")
+#onready var got_lock = get_node("../got_lock")
 onready var settings = get_node("../settings")
 
 func _ready():
@@ -81,6 +81,7 @@ func get_accuracy():
 		return 0
 	
 func aquire_target():
+	counter.change_displayed_rounds(remaining_rounds)
 	if locked_target == false:
 		var range_array = []
 		var target_array = []
